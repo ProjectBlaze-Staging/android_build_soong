@@ -446,16 +446,16 @@ def append_additional_vendor_props(args):
 
   # Although these variables are prefixed with TARGET_RECOVERY_, they are also needed under charger
   # mode (via libminui).
-  if config["RecoveryDefaultRotation"]:
+  if config.get("RecoveryDefaultRotation"):
     props.append(f"ro.minui.default_rotation={config['RecoveryDefaultRotation']}")
 
-  if config["RecoveryDefaultTouchRotation"]:
+  if config.get("RecoveryDefaultTouchRotation"):
     props.append(f"ro.minui.default_touch_rotation={config['RecoveryDefaultTouchRotation']}")
 
-  if config["RecoveryOverscanPercent"]:
+  if config.get("RecoveryOverscanPercent"):
     props.append(f"ro.minui.overscan_percent={config['RecoveryOverscanPercent']}")
 
-  if config["RecoveryPixelFormat"]:
+  if config.get("RecoveryPixelFormat"):
     props.append(f"ro.minui.pixel_format={config['RecoveryPixelFormat']}")
 
   if "RecoveryNoInitialModsetFlush" in config:

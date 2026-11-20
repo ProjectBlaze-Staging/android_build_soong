@@ -40,7 +40,7 @@ func init() {
 var (
 	uncompressEmbeddedJniLibsRule = pctx.AndroidStaticRule("uncompress-embedded-jni-libs", blueprint.RuleParams{
 		Command2: blueprint.NewCommand(
-			`if (`, android.ZipInfo, ` $in 'lib/*.so' 2>/dev/null | `,
+			`if (`, android.ZipInfo, ` $in 'lib/*.so' 'lib/*/*.so' 2>/dev/null | `,
 			android.Grep, ` -v ' stor ' >/dev/null) ; then `,
 			android.Zip2zip, ` -i $in -o $out -0 'lib/**/*.so'`,
 			`; else `, android.Cp, ` -f $in $out; fi`,
